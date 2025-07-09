@@ -20,5 +20,11 @@ EXPOSE 5000
 ENV FLASK_APP=app.py
 ENV FLASK_ENV=production
 
+# 初始化数据库
+RUN python init_db.py
+
+# 生成模拟数据
+RUN python generate_mock_data.py
+
 # 运行应用
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
