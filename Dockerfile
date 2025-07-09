@@ -27,4 +27,4 @@ RUN python init_db.py
 RUN python generate_mock_data.py
 
 # 运行应用
-CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:create_app()"]
